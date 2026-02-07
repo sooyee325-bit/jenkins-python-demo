@@ -13,10 +13,33 @@ pipeline {
             }
         }
 
-        stage('Run Python App') {
+
+        stage('Verify Python') {
             steps {
-                sh 'python3 --version'
-                sh 'python3 app.py'
+                sh '''
+                python3 --version || python --version
+                '''
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh '''
+                python3 -m pip install --upgrade pip
+                if [ -f requirements.txt ]; then
+                    pip install -r requirements.txt
+                else
+                    pip install pytest
+                fi
+                '''
+            }
+        }
+
+        stage('Run Tests') {
+            steps {
+                sh '''
+                pytest -v test_app.py
+                '''
             }
         }
     }
