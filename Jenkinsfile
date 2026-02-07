@@ -26,7 +26,7 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
-                #python3 -m venv venv        # create a virtual environment in ./venv
+                python3 -m venv venv        # create a virtual environment in ./venv
                 . venv/bin/activate         # activate it
                 pip3 install -r requirements.txt
                 '''
@@ -37,7 +37,8 @@ pipeline {
             steps {
                 sh '''
                 . venv/bin/activate
-                pytest -v test_app.py
+                pytest --cache-dir=/tmp -v test_app.py
+
                 '''
             }
         }
