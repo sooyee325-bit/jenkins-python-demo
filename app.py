@@ -2,6 +2,11 @@
 Dummy Python application for Jenkins CI/CD practice
 """
 
+import os
+
+env = os.getenv("APP_ENV", "unknown")
+print(f"Running in {env} environment")
+
 def add(a, b):
     return a + b
 
