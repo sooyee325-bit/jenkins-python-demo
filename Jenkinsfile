@@ -1,6 +1,8 @@
 pipeline {
-    agent any
-    
+    agent { 
+        docker { image 'python:3.13' } 
+    }
+        
     environment {
         APP_ENV = "dev"
     }
@@ -25,11 +27,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
-                apt-get update
-                apt-get install -y python3-venv
                 python3 -m venv venv        # create a virtual environment in ./venv
                 . venv/bin/activate         # activate it
-                pip3 install --upgrade pip
                 pip3 install -r requirements.txt
                 '''
             }
