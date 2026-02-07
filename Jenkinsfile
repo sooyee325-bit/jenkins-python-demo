@@ -25,8 +25,8 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
-                sudo apt-get update
-                sudo apt-get install -y python3-venv
+                apt-get update
+                apt-get install -y python3-venv
                 python3 -m venv venv        # create a virtual environment in ./venv
                 . venv/bin/activate         # activate it
                 pip3 install --upgrade pip
