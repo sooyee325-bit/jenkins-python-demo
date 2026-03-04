@@ -26,9 +26,9 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh '''
-                python3 -m venv venv        # create a virtual environment in ./venv
-                . venv/bin/activate         # activate it
-                pip3 install -r requirements.txt
+                #python3 -m venv venv        # create a virtual environment in ./venv
+                #. venv/bin/activate         # activate it
+                #pip3 install -r requirements.txt
                 '''
             }
         }
