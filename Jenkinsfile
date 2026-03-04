@@ -37,7 +37,7 @@ pipeline {
             steps {
                 sh '''
                 . venv/bin/activate
-                pytest --cache-dir=/tmp -v test_app.py
+                pytest -v test_app.py
 
                 '''
             }
