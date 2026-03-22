@@ -1,6 +1,6 @@
 # test_app.py
 import pytest
-from app import add, divide   # 🔑 import from app.py
+from app import add, divide, multiple   # 🔑 import from app.py
 
 def test_add():
     assert add(2, 3) == 5
