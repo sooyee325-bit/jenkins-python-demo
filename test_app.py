@@ -9,7 +9,7 @@ def test_divide():
     assert divide(10, 2) == 5
 
 def test_multiple():
-    assert multiple(10, 2) == 20
+    assert multiple(10, 3) == 30
 
 def test_divide_by_zero():
     with pytest.raises(ValueError):
